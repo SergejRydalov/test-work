@@ -1,0 +1,34 @@
+<div class="card__wrap" [@cardAnimations]="state ?? '0'" >
+  <ng-container *ngIf="project; else empty">
+    <div class="card">
+      <h1>{{project.subject || '-'}}</h1>
+      <div class="card__body">
+        <div class="card__body__box">
+          <b class="is-turbid">Дата начала</b>
+          <p class="card__body__box__text">{{project.startDate | date: 'shortDate'}}</p>
+        </div>
+        <div class="card__body__box">
+          <b class="is-turbid">Дата окончания</b>
+          <p class="card__body__box__text">{{project.endDate | date: 'shortDate'}}</p>
+        </div>
+        <div class="card__body__box">
+          <b class="is-turbid">Автор</b>
+          <p class="card__body__box__text">{{project.createdBy}}</p>
+        </div>
+      </div>
+      <div class="card__body__box">
+        <b class="is-turbid">Описание</b>
+        <p class="card__body__box__text">{{project.description}}</p>
+      </div>
+      <div class="card__action">
+        <button class="btn" (click)="editProject(project)">Изменить</button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #empty>
+    <div class="empty-data">
+      Выберите проект из списка...
+    </div>
+  </ng-template>
+</div>

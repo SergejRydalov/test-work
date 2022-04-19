@@ -1,0 +1,64 @@
+.edit-form {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  height: 50%;
+  width: 50%;
+  z-index: 10;
+  background: #FFF;
+  box-shadow: 0 0 15px #000;
+}
+
+.edit-form__fade:before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #333333;
+  opacity: .5;
+  z-index: 5;
+}
+
+.edit-form, .edit-form__body__box {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-form {
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.edit-form__body__box > span {
+  margin-top: 16px;
+}
+
+.edit-form__body__box > b {
+  margin-top: 20px;
+}
+
+.edit-form__body__box > span > p {
+  position: absolute;
+  font-size: 12px;
+  color: red;
+}
+
+input {
+  width: 100%;
+}
+
+.edit-form__action, .edit-form__body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.edit-form__body {
+  text-align: left;
+}
+
+.edit-form__action {
+  margin-top: auto;
+}

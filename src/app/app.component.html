@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="header">
+    <ul class="nav">
+      <li class="nav__tab"><a routerLinkActive="active" routerLink="/data">Данные</a></li>
+      <li class="nav__tab"><a routerLinkActive="active" routerLink="/projects">Проекты</a></li>
+    </ul>
+  </div>
+  <div class="content" [@routeAnimations]="changeRoute()">
+    <router-outlet></router-outlet>
+  </div>
+</div>

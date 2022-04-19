@@ -1,0 +1,26 @@
+<div class="projects__wrap">
+  <ng-container *ngIf="projectList?.length; else emptyList">
+    <div class="projects__list">
+      <div class="projects__item" *ngFor="let project of projectList" (click)="openProject(project)"
+        [ngClass]="{'is-selected': project.id === selectedId}">
+        <span class="is-turbid">{{project.startDate | date:'dd MMMM YYYY'}} - {{project.endDate | date:'dd MMMM YYYY'}}</span>
+        <h2>{{project.subject}}</h2>
+        <span class="is-right"><p class="is-turbid">{{project.createdBy}}</p></span>
+      </div>
+    </div>
+    <div class="projects__card">
+      <router-outlet (activate)='onActivate()'></router-outlet>
+      <div class="empty-data" *ngIf="emptyArea">
+        Выберите проект из списка
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #emptyList>
+    <div class="empty-data">
+      Список проектов пуст...
+    </div>
+  </ng-template>
+</div>
+
+<edit-form *ngIf="appService.editProject$ | async as editProject" [project]="editProject"></edit-form>

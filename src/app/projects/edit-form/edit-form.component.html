@@ -1,0 +1,44 @@
+<div class="edit-form__fade" [formGroup]="editForm">
+  <form class="edit-form">
+    <h2>Редактирование прокта</h2>
+    <div class="edit-form__body">
+      <div class="edit-form__body__box">
+        <b class="is-turbid">Наименование проекта</b>
+        <b class="is-turbid">Дата начала</b>
+        <b class="is-turbid">Дата окончания</b>
+        <b class="is-turbid">Автор</b>
+        <b class="is-turbid">Автор</b>
+      </div>
+      <div class="edit-form__body__box">
+        <span>
+          <input class="form-control" type="text" formControlName="subject">
+          <p *ngIf="isValid(editForm.get('subject'))">errorText</p>
+        </span>
+        <span>
+          <input class="form-control" type="date" formControlName="startDate">
+          <p class="error" *ngIf="isValid(editForm.get('startDate'))">errorText</p>
+        </span>
+        <span>
+          <input class="form-control" type="date" formControlName="endDate">
+          <p class="error" *ngIf="isValid(editForm.get('endDate'))">errorText</p>
+        </span>
+        <span>
+          <input class="form-control" type="text" formControlName="createdBy">
+          <p class="error" *ngIf="isValid(editForm.get('createdBy'))">errorText</p>
+        </span>
+        <span>
+          <textarea class="form-control" cols="40" rows="8" formControlName="description"></textarea>
+          <p class="error" *ngIf="isValid(editForm.get('description'))">errorText</p>
+        </span>
+      </div>
+    </div>
+    <div class="edit-form__action">
+      <button class="btn" type="button" (click)="save()">Сохранить</button>
+      <button class="btn btn-inactive" type="button" (click)="cancel()">Отмена</button>
+    </div>
+  </form>
+</div>
+
+
+
+
